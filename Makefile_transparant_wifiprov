@@ -1,0 +1,29 @@
+
+am__append_34 += tools/transparent_service
+am__EXEEXT_9 += tools/transparent_service$(EXEEXT)
+am__tools_transparent_service_SOURCES_DIST = tools/transparent_service.c \
+        src/uuid-helper.c
+
+tools/transparent_service.$(OBJEXT): tools/$(am__dirstamp) \
+	tools/$(DEPDIR)/$(am__dirstamp)
+
+tools/transparent_service$(EXEEXT):tools/transparent_service.$(OBJEXT) src/uuid-helper.$(OBJEXT) $(tools_btgatt_server_DEPENDENCIES) $(EXTRA_tools_btgatt_server_DEPENDENCIES) tools/$(am__dirstamp)
+	@rm -f tools/transparent_service$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) tools/transparent_service.$(OBJEXT) src/uuid-helper.$(OBJEXT) $(tools_btgatt_server_LDADD) $(LIBS)
+tools/btinfo.$(OBJEXT): tools/$(am__dirstamp) \
+	tools/$(DEPDIR)/$(am__dirstamp)
+
+am__append_34 += tools/wifi_prov_service
+am__EXEEXT_9 += tools/wifi_prov_service$(EXEEXT)
+am__tools_wifi_prov_service_SOURCES_DIST = tools/wifi_prov_service.c \
+        src/uuid-helper.c
+
+tools/wifi_prov_service.$(OBJEXT): tools/$(am__dirstamp) \
+        tools/$(DEPDIR)/$(am__dirstamp)
+
+tools/wifi_prov_service$(EXEEXT): tools/wifi_prov_service.$(OBJEXT) src/uuid-helper.$(OBJEXT) $(tools_btgatt_server_DEPENDENCIES) $(EXTRA_tools_btgatt_server_DEPENDENCIES) tools/$(am__dirstamp)
+	@rm -f tools/wifi_prov_service$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) tools/wifi_prov_service.$(OBJEXT) src/uuid-helper.$(OBJEXT) $(tools_btgatt_server_LDADD) $(LIBS)
+tools/btinfo.$(OBJEXT): tools/$(am__dirstamp) \
+        tools/$(DEPDIR)/$(am__dirstamp)
+
