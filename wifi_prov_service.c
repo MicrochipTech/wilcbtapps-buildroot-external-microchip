@@ -958,7 +958,7 @@ static void cmd_notify(struct server *server, char *cmd_str)
 							conf_cb, NULL, NULL))
 			printf("Failed to initiate indication\n");
 	} else if (!bt_gatt_server_send_notification(server->gatt, handle,
-								value, length))
+								value, length,false))
 		printf("Failed to initiate notification\n");
 
 done:
