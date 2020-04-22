@@ -13,8 +13,8 @@ tools/transparent_service$(EXEEXT):tools/transparent_service.$(OBJEXT) src/uuid-
 tools/btinfo.$(OBJEXT): tools/$(am__dirstamp) \
 	tools/$(DEPDIR)/$(am__dirstamp)
 
-am__append_34 += tools/wifi_prov_service
-am__EXEEXT_9 += tools/wifi_prov_service$(EXEEXT)
+am__append_35 += tools/wifi_prov_service
+am__EXEEXT_7 += tools/wifi_prov_service$(EXEEXT)
 am__tools_wifi_prov_service_SOURCES_DIST = tools/wifi_prov_service.c \
         src/uuid-helper.c
 
