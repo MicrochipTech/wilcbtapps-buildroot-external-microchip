@@ -1,6 +1,6 @@
 
-am__append_34 += tools/transparent_service
-am__EXEEXT_9 += tools/transparent_service$(EXEEXT)
+am__append_35 += tools/transparent_service
+am__EXEEXT_7 += tools/transparent_service$(EXEEXT)
 am__tools_transparent_service_SOURCES_DIST = tools/transparent_service.c \
         src/uuid-helper.c
 
