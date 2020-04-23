@@ -12,10 +12,10 @@ def update_file():
     try:
         with open(FILEPATH,'r') as hfile:
             content = hfile.readlines()
-            print content
+            print(content)
             hfile.close()
     except Exception as e:
-        print e
+        print(e)
     i=1
 
     for line in content:
@@ -26,14 +26,14 @@ def update_file():
         else:
             i+=1
 
-    print content[i]
+    print(content[i])
     try:
         with open(FILEPATH_TEMP,'r') as tfile:
             #data = tfile.readlines()
             data = tfile.read()
             tfile.close()
     except Exception as e:
-        print e
+        print(e)
 
     content[i]=data
     try:
@@ -41,7 +41,7 @@ def update_file():
             headerFile.writelines(content)
             headerFile.close()
     except Exception as e:
-        print e
+        print(e)
 
 
 if __name__ == '__main__':
