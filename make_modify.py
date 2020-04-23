@@ -2,7 +2,7 @@ import sys
 
 
 FILEPATH = '../'+sys.argv[1]+'/Makefile'
-FILEPATH_TEMP = 'Makefile_transparant_wifiprov' 
+FILEPATH_TEMP = 'Makefile_transparant_wifiprov'
 
 
 STRING_REF = "tools/btgatt-server$(EXEEXT): $(tools_btgatt_server_OBJECTS) $(tools_btgatt_server_DEPENDENCIES) $(EXTRA_tools_btgatt_server_DEPENDENCIES) tools/$(am__dirstamp)"
@@ -12,11 +12,11 @@ def update_file():
     try:
         with open(FILEPATH,'r') as hfile:
             content = hfile.readlines()
-	    print content
+            print content
             hfile.close()
     except Exception as e:
         print e
-    i=1    
+    i=1
 
     for line in content:
         if STRING_REF in line:
@@ -26,7 +26,7 @@ def update_file():
         else:
             i+=1
 
-    print content[i] 
+    print content[i]
     try:
         with open(FILEPATH_TEMP,'r') as tfile:
             #data = tfile.readlines()
@@ -35,7 +35,7 @@ def update_file():
     except Exception as e:
         print e
 
-    content[i]=data	 
+    content[i]=data
     try:
         with open(FILEPATH,'w') as headerFile:
             headerFile.writelines(content)
