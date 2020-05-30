@@ -422,7 +422,7 @@ static void write_cb(struct gatt_db_attribute *attrib, unsigned int id,
 {
 	if(len > (32+64))
 		process_wifi_prov_data(value,len);
-	
+	gatt_db_attribute_write_result(attrib, id, 0); 	
 }
 
 static void populate_gap_service(struct server *server)
