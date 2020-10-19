@@ -82,8 +82,7 @@ const uint128_t trans_tac_uuid_c = {
 #define COLOR_BOLDWHITE	"\x1B[1;37m"
 
 static const char hardware_revision[] = "0.0.1";
-static const char test_device_name[] = "Very Long Test Device Name For Testing "
-				"ATT Protocol Operations On GATT Server";
+static const char test_device_name[] ="WILC-TransDev";
 static bool verbose = false;
 
 struct server {
@@ -322,12 +321,21 @@ static void write_cb(struct gatt_db_attribute *attrib, unsigned int id,
                         uint8_t opcode, struct bt_att *att, void *user_data)
 {
 	char i =0;
-	printf("received bytes are=");
-	for (i=0;i<len;i++)
-	  printf("%c",value[i]);
+	uint8_t error = 0;
+	if (len > 0)
+	{
+		printf("received %d number of bytes:-\n");
+		for (i=0;i<len;i++)
+		{
+			if(value[i] & ~0x7F) //ascii
+	  			printf("0x%02X", value[i]);
+			else
+				printf("%c",value[i]);
+		}
+		printf("\n");
+		gatt_db_attribute_write_result(attrib, id, error);
+	}
 
-	printf("\n");
-	
 }
 
 static void populate_gap_service(struct server *server)
@@ -446,7 +454,7 @@ static void populate_transparent_service(struct server *server)
         bt_uuid128_create(&uuid, trans_tx_uuid);
 	trans_tx_c = gatt_db_service_add_characteristic(service, &uuid,
 						BT_ATT_PERM_NONE,
-						BT_GATT_CHRC_PROP_NOTIFY | BT_GATT_CHRC_PROP_WRITE | BT_GATT_CHRC_PROP_WRITE_WITHOUT_RESP,
+						BT_GATT_CHRC_PROP_INDICATE | BT_GATT_CHRC_PROP_NOTIFY | BT_GATT_CHRC_PROP_WRITE | BT_GATT_CHRC_PROP_WRITE_WITHOUT_RESP,
 						NULL, write_cb, server);
 	server->trans_tx_handle = gatt_db_attribute_get_handle(trans_tx_c);
 	
