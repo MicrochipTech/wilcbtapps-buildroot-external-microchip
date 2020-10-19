@@ -408,7 +408,8 @@ static void process_wifi_prov_data(const uint8_t *value,size_t len)
 	
 	update_wpa_supp(ssid,psk);
 	
-	system("wpa_cli -i wlan0 reconfigure"); //update received configuration of wpa_supplicant
+	mainloop_quit();
+	
 }
 static void read_cb(struct gatt_db_attribute *attrib, unsigned int id,
                         uint16_t offset, uint8_t opcode, struct bt_att *att,
