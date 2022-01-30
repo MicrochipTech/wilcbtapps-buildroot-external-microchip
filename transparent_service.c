@@ -555,7 +555,7 @@ static struct server *server_create(int fd, uint16_t mtu,bool service_visible)
 
 	server->service_visible = service_visible;
 	if (verbose) {
-		bt_att_set_debug(server->att, att_debug_cb, "att: ", NULL);
+		bt_att_set_debug(server->att, BT_ATT_DEBUG_VERBOSE, att_debug_cb, "att: ", NULL);
 		bt_gatt_server_set_debug(server->gatt, gatt_debug_cb,
 							"server: ", NULL);
 	}
